@@ -62,8 +62,12 @@ always @(posedge clk or negedge n_rst) begin
             tmp_din <= {1'b0, tmp_din[3:1]};
         end
 
-        else begin
+        else if (load == 1'b1) begin
             tmp_din <= din;
+        end
+
+        else begin
+            tmp_din <= tmp_din;
         end
     end
 
