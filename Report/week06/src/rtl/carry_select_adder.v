@@ -26,13 +26,13 @@ assign {c1, sum[1:0]} = din_a[1:0] + din_b[1:0] + cin;
 
 
 // assign, ? : 
-assign {c2, sum[3:2]} = (c1 == 1'b1) ? din_a[3:2] + din_b[3:2] + c1 : din_a[3:2] + din_b[3:2];
+    assign {c2, sum[3:2]} = (c1 == 1'b1) ? din_a[3:2] + din_b[3:2] + 1'b1 : din_a[3:2] + din_b[3:2];
 
 
 // always, if ~ else
 always @(c2 or din_a or din_b) begin
     if (c2) begin  // c2 == 1'b1
-        {c3, reg_s[1:0]} = din_a[5:4] + din_b[5:4] + c2;
+        {c3, reg_s[1:0]} = din_a[5:4] + din_b[5:4] + 1'b1;
     end
     else begin
         {c3, reg_s[1:0]} = din_a[5:4] + din_b[5:4];
@@ -44,7 +44,7 @@ end
 always @(c3 or din_a or din_b) begin
     case(c3)
         1'b1 : begin
-            {c4, reg_s[3:2]} = din_a[7:6] + din_b[7:6] + c3;
+            {c4, reg_s[3:2]} = din_a[7:6] + din_b[7:6] + 1'b1;
         end
         1'b0 : begin
             {c4, reg_s[3:2]} = din_a[7:6] + din_b[7:6];
