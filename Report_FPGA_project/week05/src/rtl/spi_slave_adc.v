@@ -11,7 +11,7 @@ input           n_rst;
 input   [7:0]   data;
 input           cs_n;
 
-output   reg    sdata;
+output          sdata;
 
 reg     [4:0]   cnt;
 reg     [7:0]   temp;
