@@ -37,7 +37,7 @@ always @(posedge clk or negedge n_rst) begin
 	end
 
 	else begin
-		cnt <= ((cnt_restart == 1'b1) && (cnt == 1'b0))? T_20MS :
+		cnt <= ((cnt_restart == 1'b1) && (cnt == 20'h0_0000))? T_20MS :
 			   (cnt > 20'h0_0000)? cnt - 20'h0_0001 : cnt;
 	end
 end
