@@ -61,10 +61,6 @@ always @(posedge clk or negedge n_rst) begin
             cnt <= 4'h0;    
         end
 
-        else if (cnt == SCLK_HALF) begin
-            cnt <= 4'h0;    
-        end
-
         else begin 
             cnt <= cnt;
         end
